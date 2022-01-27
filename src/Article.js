@@ -1,8 +1,20 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import ArticleCreate from './ArticleCreate';
+import axios from 'axios';
+
+async function getData() {
+  const url = 'http://localhost:1337/api/articles';
+  try {
+    const response = await axios.get(url);
+    console.log(response);
+    console.log(response.data.data[0]);
+  } catch (error) {
+    console.log(error);
+  }
+}
 
 const Article = () => {
+  getData();
   return (
     <div>
       <header>
@@ -15,7 +27,13 @@ const Article = () => {
           <Link to="/update">update</Link>
         </div>
         <div id="list_wrap">
-          <ul id="list" />
+          {/* <ul id="list">
+            {users.map(user => (
+              <li key={user.id}>
+                {user.data.title} ({user.des})
+              </li>
+            ))}
+          </ul> */}
         </div>
       </main>
     </div>

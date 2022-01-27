@@ -30,7 +30,7 @@ module.exports = {
     'linebreak-style': ['error', 'unix'],
     'prefer-const': 'error',
     'no-var': 'error',
-    'no-console': 'warn',
+    'no-console': 'off',
     'no-undef': 'warn',
     'react/prop-types': 'off',
     // '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
