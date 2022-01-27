@@ -11,6 +11,8 @@ const Article = () => {
       <main>
         <div id="create_box">
           <Link to="/create">Create</Link>
+          <Link to="/detail">detail</Link>
+          <Link to="/update">update</Link>
         </div>
         <div id="list_wrap">
           <ul id="list" />

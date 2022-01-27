@@ -50,3 +50,165 @@ header {
     }
   }
 }
+
+/* ***** create page ***** */
+#create_header {
+  background-color: blanchedalmond;
+}
+#form_wrap {
+  display: flex;
+  justify-content: center;
+
+  form {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+  }
+  label {
+    text-align: center;
+    font-weight: 600;
+  }
+  label b {
+    font-size: 0.7rem;
+    color: #555;
+  }
+  input,
+  textarea {
+    margin-bottom: 10px;
+    text-align: center;
+    font-size: 1.2rem;
+  }
+  input {
+    height: 30px;
+  }
+}
+
+#radio_box {
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  input {
+    line-height: 50px;
+    vertical-align: middle;
+  }
+  label {
+    margin-right: 8px;
+    font-weight: lighter;
+    line-height: 50px;
+  }
+}
+/* ***** detail page ***** */
+#detail_header {
+  background-color: cornflowerblue;
+}
+#detail_wrap {
+  min-width: 300px;
+  max-width: 800px;
+  margin: 50px auto;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  border: 2px solid black;
+  #detail_type {
+    font-size: 0.8rem;
+    color: #555;
+    margin-bottom: -5px;
+  }
+  #detail_title {
+    font-size: 1.8rem;
+    font-weight: 700;
+  }
+  #detail_author {
+    font-size: 1rem;
+    position: relative;
+    left: 150px;
+  }
+  #detail_des {
+    font-size: 1.3rem;
+    margin-top: 30px;
+  }
+  #time_wrap {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    gap: 30px;
+    color: #777;
+    font-size: 0.7rem;
+  }
+}
+
+#btn_wrap {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  column-gap: 30px;
+
+  #delete_btn,
+  #update_btn {
+    width: 70px;
+    height: 30px;
+    line-height: 30px;
+    border: 1px solid black;
+    background-color: rgb(9, 233, 65);
+    color: #fff;
+  }
+
+  #delete_btn {
+    background-color: rgb(211, 43, 43);
+    cursor: pointer;
+  }
+}
+
+/* ***** update page ***** */
+#update_header {
+  background-color: rgb(15, 196, 84);
+}
+#ud_wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+
+  select {
+    margin-bottom: 20px;
+  }
+
+  label {
+    text-align: center;
+    font-weight: 600;
+  }
+
+  label b {
+    font-size: 0.7rem;
+    color: #555;
+  }
+
+  input,
+  textarea {
+    margin-bottom: 10px;
+    text-align: center;
+    font-size: 1.2rem;
+  }
+
+  input {
+    height: 30px;
+  }
+}
+
+#udbtn_wrap {
+  display: flex;
+  justify-content: center;
+}
+#ud_btn {
+  text-align: center;
+  margin: 30px auto;
+  background-color: blue;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 5px 10px;
+}
