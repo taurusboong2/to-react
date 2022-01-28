@@ -6,15 +6,18 @@ async function getData() {
   const url = 'http://localhost:1337/api/articles';
   try {
     const response = await axios.get(url);
-    console.log(response);
-    console.log(response.data.data[0]);
+    return response;
   } catch (error) {
     console.log(error);
   }
 }
 
 const Article = () => {
-  getData();
+  getData().then(res => {
+    const dataArr = res.data.data;
+    console.log(dataArr);
+  });
+
   return (
     <div>
       <header>
@@ -27,13 +30,7 @@ const Article = () => {
           <Link to="/update">update</Link>
         </div>
         <div id="list_wrap">
-          {/* <ul id="list">
-            {users.map(user => (
-              <li key={user.id}>
-                {user.data.title} ({user.des})
-              </li>
-            ))}
-          </ul> */}
+          <ul id="list" />
         </div>
       </main>
     </div>
