@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useHistory } from 'react-router-dom';
 
 // axios.defaults.withCredentials = true;
 
 const ArticleCreate = () => {
+  const history = useHistory();
   const [inputs, setInputs] = useState({
     title: '',
     description: '',
@@ -11,7 +13,7 @@ const ArticleCreate = () => {
     type: '',
   });
 
-  const { title, des, author, type } = inputs;
+  const { title, description, author, type } = inputs;
 
   const onChange = e => {
     const { value, name } = e.target;
@@ -22,9 +24,6 @@ const ArticleCreate = () => {
   };
 
   const sendData = async () => {
-    const db = JSON.stringify(inputs);
-    const header = { headers: { 'Content-Type': `application/json; charset=utf-8` } };
-    console.log(db);
     console.log(inputs);
     try {
       const response = await axios.post('http://localhost:1337/api/articles', {
@@ -36,7 +35,7 @@ const ArticleCreate = () => {
     } catch (e) {
       console.log(e);
     }
-    console.log(1111);
+    history.goBack();
   };
 
   return (
@@ -50,10 +49,18 @@ const ArticleCreate = () => {
             title을 입력 해주세요. <b>*필수</b>
           </label>
           <input type="text" name="title" id="title" placeholder="title 입력" value={title} onChange={onChange} />
-          <label htmlFor="des">
+          <label htmlFor="description">
             des 입력 해주세요. <b>*생략 가능</b>
           </label>
-          <textarea name="des" id="des" cols="30" rows="5" placeholder="des 입력" value={des} onChange={onChange} />
+          <textarea
+            name="description"
+            id="des"
+            cols="30"
+            rows="5"
+            placeholder="des 입력"
+            value={description}
+            onChange={onChange}
+          />
           <label htmlFor="author">
             author을 입력 해주세요. <b>*필수</b>
           </label>
