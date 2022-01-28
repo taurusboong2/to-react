@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
@@ -13,9 +13,23 @@ async function getData() {
 }
 
 const Article = () => {
+  const [result, setResult] = useState(``);
   getData().then(res => {
     const dataArr = res.data.data;
-    console.log(dataArr);
+    setResult(
+      dataArr.map(e => {
+        const id = e.id;
+        return `
+        <li>
+          <a href="article_detail.html?id=${id}">
+              <h2>${e.attributes.title}</h2>
+              <p>${e.attributes.createdAt}</p>
+          </a>
+        </li>
+      `;
+      })
+    );
+    console.log(result);
   });
 
   return (
@@ -30,7 +44,7 @@ const Article = () => {
           <Link to="/update">update</Link>
         </div>
         <div id="list_wrap">
-          <ul id="list" />
+          <ul id="list">{result}</ul>
         </div>
       </main>
     </div>
