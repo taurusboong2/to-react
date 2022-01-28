@@ -1,6 +1,7 @@
 import React from 'react';
 
-const ArticleDetail = () => {
+const ArticleDetail = ({ match }) => {
+  console.log(match.params);
   return (
     <div>
       <header id="detail_header">

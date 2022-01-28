@@ -54,12 +54,17 @@ const DataList = () => {
   if (loading) return <div>로딩중..</div>;
   if (error) return <div>에러가 발생했습니다</div>;
   if (!data) return null;
+
   return (
     <ul className="list">
       <button onClick={fetchData}>다시 불러오기</button>
       {data.map(e => (
         <li key={e.id}>
-          <Link to="/detail">
+          <Link
+            to={{
+              pathname: `/detail/${e.id}`,
+            }}
+          >
             <h2>{e.attributes.title}</h2>
             <p>{e.attributes.createdAt}</p>
           </Link>
