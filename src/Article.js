@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
 import DataList from './DataList';
 
 const Article = () => {
@@ -12,7 +11,6 @@ const Article = () => {
       <main>
         <div id="create_box">
           <Link to="/create">Create</Link>
-          <Link to="/detail">detail</Link>
           <Link to="/update">update</Link>
         </div>
         <div id="list_wrap">
