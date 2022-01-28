@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useHistory } from 'react-router-dom';
 
 const ArticleDetail = ({ match }) => {
   const [type, setType] = useState(null);
@@ -9,8 +10,11 @@ const ArticleDetail = ({ match }) => {
   const [create, setCreate] = useState(null);
   const [update, setUpdate] = useState(null);
 
+  const history = useHistory();
+
+  const id = match.params.id;
+
   const putData = async () => {
-    const id = match.params.id;
     try {
       const response = await axios.get(`http://localhost:1337/api/articles/${id}`);
       return response.data;
@@ -28,6 +32,16 @@ const ArticleDetail = ({ match }) => {
     setCreate(data.createdAt);
     setUpdate(data.updatedAt);
   });
+
+  const deleteData = async () => {
+    try {
+      const response = await axios.delete(`http://localhost:1337/api/articles/${id}`);
+      console.log(response);
+    } catch (e) {
+      console.log(e);
+    }
+    history.goBack();
+  };
 
   return (
     <div>
@@ -52,7 +66,9 @@ const ArticleDetail = ({ match }) => {
           </div>
         </div>
         <div id="btn_wrap">
-          <div id="delete_btn">삭제</div>
+          <div id="delete_btn" onClick={deleteData}>
+            삭제
+          </div>
           <a id="update_btn" href="">
             수정
           </a>
