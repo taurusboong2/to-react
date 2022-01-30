@@ -13,7 +13,7 @@ function App() {
       <Route path="/" exact={true} component={Article} />
       <Route path="/create" component={ArticleCreate} />
       <Route path="/detail/:id" component={ArticleDetail} />
-      <Route path="/update" component={ArticleUpdate} />
+      <Route path="/update/:id" component={ArticleUpdate} />
     </div>
   );
 }

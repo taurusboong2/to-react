@@ -5,7 +5,7 @@ import { Link, useHistory } from 'react-router-dom';
 const ArticleUpdate = ({ match }) => {
   const history = useHistory();
   const id = match.params.id;
-  console.log(match);
+  console.log(id);
 
   const [inputs, setInputs] = useState({
     type: '',
@@ -37,7 +37,7 @@ const ArticleUpdate = ({ match }) => {
     } catch (e) {
       console.log(e);
     }
-    history.goBack();
+    history.push('/');
     console.log(`인풋후`, inputs);
   };
 
