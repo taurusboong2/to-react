@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 const ArticleDetail = ({ match }) => {
   const [type, setType] = useState(null);
@@ -13,6 +13,7 @@ const ArticleDetail = ({ match }) => {
   const history = useHistory();
 
   const id = match.params.id;
+  console.log(match.params);
 
   const putData = async () => {
     try {
@@ -69,9 +70,14 @@ const ArticleDetail = ({ match }) => {
           <div id="delete_btn" onClick={deleteData}>
             삭제
           </div>
-          <a id="update_btn" href="">
+          <Link
+            id="update_btn"
+            to={{
+              pathname: `/update/${id}`,
+            }}
+          >
             수정
-          </a>
+          </Link>
         </div>
       </main>
     </div>
